@@ -7,6 +7,14 @@ var LogOut = () => {
     window.location.href = '/'
 }
 
+var StoreRedirect = () => {
+    window.location.href = '/store'
+}
+
+var ChatRedirect = () => {
+    window.location.href = '/chat'
+}
+
 export default function Dashboard() {
     const user = localStorage.getItem('user')
     const [loading, setLoading] = useState(0)
@@ -33,13 +41,21 @@ export default function Dashboard() {
     
 
     return (
-        <div>
+        <div className='App-header'>
             {!loading ? <SpinnerLoading/> : <div>
             <div>
+
+                <iframe src='https://main--magenta-stroopwafel-e74e4e.netlify.app/'></iframe>
+
                 <img src={foundUser.avatar}/>
                 Hello {user} {foundUser.email}
             </div>
+            <div >
+            <button className='button-18' onClick={StoreRedirect}>Store</button>
+            <button className='button-18' onClick={ChatRedirect}>Chat</button>
             <button className='button-18' onClick={LogOut}>Log out</button>
+            </div>
+            
             </div>}
         </div>
     )
